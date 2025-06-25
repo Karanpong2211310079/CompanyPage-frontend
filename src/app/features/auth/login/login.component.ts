@@ -13,7 +13,7 @@ export class LoginComponent {
     email: new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required])
   })
-
+  
   onSubmit(){
     if(this.loginform.valid){
       console.log('ข้อมูล' , this.loginform.value)
