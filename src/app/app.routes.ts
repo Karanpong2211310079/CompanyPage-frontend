@@ -1,15 +1,34 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './features/admin/dashboard/dashboard.component';
-import { authRoutes } from './features/auth/auth.routes';
-
+import { DashboardComponent as AdminDashboardComponent } from './features/admin/dashboard/dashboard.component';
+import { DashboardComponent as UserDashboardComponent } from './features/user/dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
+import { LoginComponent } from './features/auth/login/login.component';
 export const routes: Routes = [
-    {
-        path:'auth',
-        loadChildren: () => import('./features/auth/auth.routes').then(m => m.authRoutes)
-    },
-    {
-        path: 'admin',
-        component: DashboardComponent
-    }
+  // หน้า public
+  { path: 'login', component: LoginComponent },
 
+  // หน้า admin
+  {
+    path: 'admin',
+    component: AdminDashboardComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' }
+  },
+
+  // หน้า user
+  {
+    path: 'user',
+    component: UserDashboardComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'user' }
+  },
+
+  // กำหนด default route
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+
+  // 404 ถ้าไม่เจอหน้า
+  { path: '**', redirectTo: '/login' }
 ];
+
+
+
