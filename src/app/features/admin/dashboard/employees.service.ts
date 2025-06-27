@@ -10,8 +10,9 @@ export class EmployeesService {
 
   constructor(private http:HttpClient) {}
 
-   getEmployees(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
-  }
+  getEmployees(page: number = 1): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}?page=${page}`);
+}
+
 
 }
