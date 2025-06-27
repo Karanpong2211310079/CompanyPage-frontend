@@ -1,0 +1,56 @@
+
+<nav class="bg-gray-800 text-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="#" class="text-2xl font-bold tracking-wide hover:text-green-400">
+          MyApp
+        </a>
+      </div>
+
+      <!-- Menu desktop -->
+      <div class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-green-400 px-3 py-2 rounded-md text-lg font-medium transition">Home</a>
+        <a href="#" class="hover:text-green-400 px-3 py-2 rounded-md text-lg font-medium transition">About</a>
+        <a href="#" class="hover:text-green-400 px-3 py-2 rounded-md text-lg font-medium transition">Services</a>
+        <a href="#" class="hover:text-green-400 px-3 py-2 rounded-md text-lg font-medium transition">Contact</a>
+      </div>
+
+      <!-- Profile button -->
+      <div class="hidden md:flex items-center space-x-4">
+        <button class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md font-semibold transition">
+          Login
+        </button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-button" class="focus:outline-none">
+          <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-1 bg-gray-700">
+    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-green-600">Home</a>
+    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-green-600">About</a>
+    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-green-600">Services</a>
+    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-green-600">Contact</a>
+    <button class="w-full text-left bg-green-500 hover:bg-green-600 px-3 py-2 rounded-md font-semibold mt-2">Login</button>
+  </div>
+
+  <script>
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</nav>
